@@ -37,8 +37,21 @@
 			pinctrl-0 = <
 				&P1_30_uart_pin
 				&P1_32_uart_pin
-				&P2_31_spi_cs_pin
 			>;
 		};
 	};
+
+	fragment@2 {
+		target = <&spi1>;
+		__overlay__ {
+			status = "okay";
+			pinctrl-names = "default";
+			pinctrl-0 = <
+				&P2_31_spi_cs_pin
+			>;
+
+			channel@0{ status = "disabled"; };
+			channel@1{ status = "disabled"; };
+		};
+};
 };
